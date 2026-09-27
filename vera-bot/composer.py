@@ -33,7 +33,7 @@ elif ANTHROPIC_API_KEY:
     LLM_MODEL = "claude-3-5-haiku-20241022"
 elif GEMINI_API_KEY:
     LLM_PROVIDER = "gemini"
-    LLM_MODEL = "gemini-flash-latest"
+    LLM_MODEL = "gemini-3.8-flash"
 else:
     LLM_PROVIDER = "none"
     LLM_MODEL = "deterministic-engine"
