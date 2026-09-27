@@ -46,7 +46,26 @@ app.add_middleware(
 )
 
 
-# ── HEALTH & METADATA ─────────────────────────────────────────────────────────
+# ── ROOT & HEALTH ─────────────────────────────────────────────────────────────
+
+@app.get("/")
+async def root():
+    """Welcome index displaying bot status and active API documentation."""
+    return {
+        "status": "online",
+        "bot": "Vera — Merchant Engagement Agent",
+        "team": TEAM_NAME,
+        "challenge": "magicpin AI Challenge",
+        "docs": "/docs",
+        "endpoints": [
+            "/v1/healthz",
+            "/v1/metadata",
+            "/v1/context",
+            "/v1/tick",
+            "/v1/reply",
+        ],
+    }
+
 
 @app.get("/v1/healthz")
 async def healthz():
